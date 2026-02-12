@@ -352,4 +352,67 @@ for i in range(1, 2 * n):
             print(' ', end = '')
         print()'''
 
-''' OJ 20'''
+''' OJ 20
+m, n = map(int, input().split())
+isNum = False
+for i in range(m, n + 1):
+    ge = int(i % 10)
+    shi = int(i / 10 % 10)
+    bai = int(i / 100)
+    number = ge * ge * ge + shi * shi * shi + bai * bai * bai
+    if i == number:
+        isNum = True
+        print(f"{i}={bai} * {bai} * {bai}+{shi} * {shi} * {shi}+{ge} * {ge} * {ge}")
+if isNum == False:
+    print("none")'''
+
+''' OJ 21
+T = int(input())
+for i in range(T):
+    n, k = map(int, input().split())
+    d = n - 1
+    for j in range(d):
+        k = 3 * (k + 1)
+    print(k)'''
+    
+''' OJ 22
+T = int(input())
+for _ in range(T):
+    item = input()
+    number = int(item)
+    while(1):
+        l = len(item)
+        isFind = True
+        for i in range(l // 2):
+            if item[i] != item[l - 1 - i]:
+                isFind = False
+                break
+        if isFind == True:
+            print(number)
+            break
+        number += 1
+        item = str(number)'''
+
+''' OJ 23
+暂时不会
+'''
+
+''' OJ 24
+n = int(input())
+fm = 1.0
+fz = 2.0
+sum = fz / fm
+for i in range(n - 1):
+    temp = fz
+    fz += fm
+    fm = temp
+    sum += fz / fm
+print(f"{sum:.6f}")'''
+
+''' OJ 25
+n = int(input())
+for i in range(n // 3):
+    for j in range(n // 2):
+        for k in range(n * 2):
+            if 3 * i + 2 * j +  k // 2 == n and i + j + k == n and k % 2 == 0:
+                print(i, j, k)'''
