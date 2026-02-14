@@ -485,3 +485,23 @@ while(left > 1): # 剩余人数不是1就一直循环
     if index > n: # 如果越界了，就从1开始重新走
         index = 1'''
 
+''' 例 4.2.4
+l = list(map(int, input().split()))
+n = l[0]
+m = l[1]
+l = l[2:]
+for i in range(m):
+    number = l.pop(0)
+    l.append(number)
+for i in range(len(l)):
+    print(f"{l[i]} ",end = '')'''
+
+''' 例 4.2.5
+n = int(input())
+a = list(map(int, input().split()))
+minNum = min(a) # 获取最小的数
+idx = a.index(minNum) # 用index函数获得最小数的索引
+a[0], a[idx] = a[idx], a[0]
+print(*a)'''
+
+''' 例 4.2.6'''
