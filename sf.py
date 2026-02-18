@@ -572,4 +572,68 @@ for i in range(n):
         print("%5d"%l[i][j], end = '')
     print()'''
 
-''' 例 4.3.4'''
+''' 例 4.3.4 # 这一题多了最后一行没有用的输入，在第二版的书中已经修改
+m, p, n = map(int,input().split())
+a = [[0] * m for i in range(p)]
+b = [[0] * p for i in range(n)]
+c = [[0] * n for i in range(m)]
+for i in range(m):
+    a[i] = list(map(int, input().split()))
+for i in range(p):
+    b[i] = list(map(int, input().split()))
+
+for i in range(m):
+    for j in range(n):
+        for k in range(p):
+            c[i][j] += a[i][k] * b[k][j]
+for i in range(m):
+    print(*c[i])'''
+
+''' 例 4.3.5
+n = int(input())
+l = [[0] * (n - i) for i in range(n)]
+num = 1
+for i in range(n):
+    k = 0
+    for j in range(i, -1 ,-1): # 列表的行数每次-1，列数每次+1，逐个往右上角
+        l[j][k] = num
+        num += 1
+        k += 1
+for i in range(n): print(*l[i])'''
+
+''' 例 4.4.1 # 本来以为是用字典来做题的，没想到还是得用列表
+n = int(input())
+l = []
+for i in range(n):
+    a, b = input().split()
+    b = int(b)
+    l.append({"name":a, "soc":b})
+for i in range(n - 1):
+    maxidx = i
+    for j in range(i + 1, n):
+        if l[j]['soc'] > l[maxidx]['soc']:
+            maxidx = j
+    l[i], l[maxidx] = l[maxidx], l[i]
+for i in range(n):
+    print(i + 1 , end = ' ')
+    print(l[i]['name'], l[i]['soc'])'''
+
+''' 例 4.4.2 # 跟上一题一个样
+n = int(input())
+l = []
+for i in range(n):
+    id, soc = input().split()
+    l.append({"id":id, "soc":int(soc)})
+for i in range(n - 1):
+    maxidx = i
+    for j in range(i + 1, n):
+        if l[j]["soc"] > l[maxidx]["soc"]:
+            maxidx = j
+        elif l[j]["soc"] == l[maxidx]['soc'] and l[j]['id'] < l[maxidx]['id']:
+            maxidx = j
+    l[i], l[maxidx] = l[maxidx], l[i]
+for i in range(n):
+    print(i+1, l[i]['id'], l[i]['soc'])'''
+
+''' 例 4.5.1'''
+
