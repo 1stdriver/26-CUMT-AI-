@@ -635,5 +635,188 @@ for i in range(n - 1):
 for i in range(n):
     print(i+1, l[i]['id'], l[i]['soc'])'''
 
-''' 例 4.5.1'''
+''' 例 4.5.1
+string = input()
+l = [0] * 10
+for i in string:
+    l[int(i)] += 1
+for i in range(len(l)):
+    if l[i] != 0:
+        print(i,l[i])
+print()'''
+
+''' 例 4.5.2
+T = int(input())
+isequal = True
+for i in range(T):
+    n = int(input())
+    l = [0 * n for i in range(n)]
+    for i in range(n):
+        l[i] = list(map(int, input().split()))
+    for i in range(n):
+        for j in range(n // 2):
+            if l[i][j] != l[i][n - 1 - j]:
+                isequal = False
+                break
+    for i in range(n // 2):
+        for j in range(n):
+            if l[i][j] != l[n - 1 - i][j]:
+                isequal = False
+                break
+    if isequal == True:
+        print("yes")         
+    else:
+        print("no")'''
+
+''' 例 4.5.3
+T = int(input())
+for _ in range(T):
+    s = list(input())
+    t = list(input())
+    s.sort()
+    t.sort()
+
+    if s is t:
+        print("Yes")
+    else:
+        print("No")'''
+
+''' 例 4.5.4
+n = int(input())
+l = list(map(int, input().split()))
+m = int(input())
+nums = list(map(int, input().split()))
+l.sort()
+print(*l)
+for i in range(m):
+    left = 0
+    right = len(l) - 1
+    isFind = False
+    number = nums[i]
+    while(left <= right):
+        mid = (left + right) // 2
+        if l[mid] < number:
+            left = mid + 1
+        elif l[mid] > number:
+            right = mid - 1
+        else:
+            isFind = True
+            print(mid + 1,end = ' ')
+            break
+    if isFind == False:
+        print(0, end = ' ')'''
+
+''' 例 4.5.5
+T = int(input())
+for _ in range(T):
+    found = False
+    m, n = map(int, input().split())
+    a = []
+    for i in range(m):
+        row = list(map(int, input().split()))
+        a.append(row)
+    for i in range(m):
+        ans = min(a[i])  # 每行最小值
+        idx = a[i].index(ans)  # 最小值所在列
+        isNum = True
+        for j in range(m):
+            if a[j][idx] > ans:  # 列中有数更大,就不是马鞍点
+                isNum = False
+                break 
+        if isNum:
+            print(ans)
+            found = True
+            break # 找到就直接退出
+    if not found:
+        print("Impossible")'''
+
+''' 例 4.5.6
+lct = [[1,2],[2,1],[2,-1],[1,-2],[-1,-2],[-2,-1],[-2,1],[-1,2]] # 这是所有能走的位置
+T = int(input())
+for _ in range(T):
+    cnt = 0
+    loc = input()
+    string = loc[0]
+    num = loc[1]
+    for i in range(len(lct)):
+        s = chr(ord(string) + lct[i][0]) # 把字母转为对应的ascii数字再加上位移量，再变为字母(字母 -> 数字 -> 字母)
+        l = int(num) + lct[i][1] # 数字就直接加
+        if s >= 'a' and s <= 'h' and l >= 1 and l <= 8: # 如果字母和数字都在正常范围内，cnt加1
+            cnt += 1
+    print(cnt)'''
+
+''' 例 4.5.7 # 这一题答案k很抽象，写得不太好，可以通过提前计算每一行和每一列的和，再用双重循环来更新最大值，时间复杂度能降到O(n^2)
+T = int(input())
+for _ in range(T):
+    n = int(input())
+    maxNum = 0
+    r, c = 0, 0
+    a = [[0] * (n) for i in range(n)]
+    for i in range(n):
+        a[i] = list(map(int, input().split()))
+    for i in range(n):
+        for j in range(n):
+            num = 0
+            for k in range(n):
+                num += a[i][k]
+                num += a[k][j]
+            num -= a[i][j]
+            if num > maxNum:
+                maxNum = num
+                r = i + 1
+                c = j + 1
+    print(r, c, maxNum)'''
+
+''' 例 4.5.8 # 这一题忘了还能直接遍历字典的key
+n = int(input())
+dic = {}
+for i in range(n):
+    string = input()
+    if string in dic.keys():
+        dic[string] += 1
+    else:
+        dic[string] = 1
+Value = max(dic.values())
+Key = max(dic.keys())
+for i in dic.keys():
+    if dic[i] == Value and i < Key:
+        Key = i
+print(Key)'''
+
+''' OJ 1 # 要善于利用python的特性，能省不少事
+T = int(input())
+for _ in range(T):
+    a = []
+    n, i, j, *a = map(int, input().split())
+    a[1:6] = a[1:6][::-1]
+    print(*a)'''
+
+''' OJ 2 # 同上
+a = []
+n, x, *a = map(int, input().split())
+a.append(x)
+a.sort()
+print(*a)'''
+
+''' OJ 3
+T = int(input())
+for _ in range(T):
+    m, *a = map(int, input().split())
+    n, *b = map(int, input().split())
+    c = a + b
+    c.sort()
+    print(*c)'''
+
+''' OJ 4
+T = int(input())
+for _ in range(T):
+    n, *a = map(int, input().split())
+    a.sort()
+    for i in range(n):
+        num = a.pop(0)
+        a.append(num)
+    print(*a)'''
+
+''' OJ 5'''
+
 
