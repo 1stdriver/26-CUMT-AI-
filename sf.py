@@ -283,7 +283,6 @@ for i in range(p):
 print(psb, maxNums)'''
 
 ''' OJ 14 
-
 暂时不会
 '''
 
@@ -395,7 +394,6 @@ for _ in range(T):
         item = str(number)'''
 
 ''' OJ 23
-
 暂时不会
 '''
 
@@ -817,6 +815,19 @@ for _ in range(T):
         a.append(num)
     print(*a)'''
 
-''' OJ 5'''
-
+''' OJ 5
+n, *a = map(int, input().split())
+a.sort()
+l = 0
+if len(a) % 2 == 1:
+    l = len(a) // 2 + 1
+else:
+    l = len(a) // 2
+p = 0
+for i in range(l):
+    if a[i] % 2 == 1:
+        p += a[i] // 2 + 1
+    else:
+        p += a[i] // 2
+print(p)'''
 
