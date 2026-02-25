@@ -831,3 +831,115 @@ for i in range(l):
         p += a[i] // 2
 print(p)'''
 
+''' OJ 6
+T = int(input())
+for _ in range(T):
+    n, m, *a = map(int, input().split())
+    A = a[:n]
+    B = a[n:]
+    for i in B:
+        if A.count(i) > 0:
+            A.remove(i)
+    if len(A) > 0:
+        A.sort()
+        print(*A)
+    else:
+        print("NULL")'''
+
+''' OJ 7
+a, b = input().split()
+match(a):
+    case('one'):
+        a = 1
+    case('two'):
+        a = 2
+    case('three'):
+        a = 3
+    case('four'):
+        a = 4
+    case('five'):
+        a = 5
+    case('six'):
+        a = 6
+    case('seven'):
+        a = 7
+    case('eight'):
+        a = 8
+    case('nine'):
+        a = 9
+    case('ten'):
+        a = 10
+match(b):
+    case('one'):
+        b = 1
+    case('two'):
+        b = 2
+    case('three'):
+        b = 3
+    case('four'):
+        b = 4
+    case('five'):
+        b = 5
+    case('six'):
+        b = 6
+    case('seven'):
+        b = 7
+    case('eight'):
+        b = 8
+    case('nine'):
+        b = 9
+    case('ten'):
+        b = 10
+print(a+b)'''
+
+''' OJ 8 # 有点难,得多看几遍
+T = int(input())
+for _ in range(T):
+    n = int(input())
+    res = 0
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    a.sort()
+    b.sort()
+    tmin, tmax = 0, n - 1
+    qmin, qmax = 0, n - 1
+    while(tmin <= tmax):
+        if a[tmax] > b[qmax]:
+            res += 1
+            tmax -= 1
+            qmax -= 1
+        elif a[tmin] > b[qmin]:
+            res += 1
+            qmin += 1
+            tmin += 1
+        else:
+            if a[tmin] < b[qmax]:
+                res -= 1
+            tmin += 1
+            qmax -= 1
+    print(res * 200)'''
+
+''' OJ 9 # 这一题输入有问题，应该是XYYXXYYX，第一版是错的，第二版中已经修改
+s = input()
+n = len(s)
+minLen = n
+while(True):
+    if minLen % 2 != 0:
+        print(minLen)
+        break
+    half = minLen // 2
+    first_half = s[:half]
+    second_half = s[half:]
+    print(first_half)
+    print(second_half)
+    print()
+    if second_half == first_half[::-1]:
+        s = first_half
+        minLen = half
+    else:
+        print(minLen)
+        break'''
+
+''' OJ 10'''
+
+
