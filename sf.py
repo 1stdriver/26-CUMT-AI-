@@ -1014,6 +1014,105 @@ for i in range(N - 1):
 for i in range(N):
     print(a[i])'''
 
-''' OJ 16'''
+''' OJ 16
+s = input().strip()
+dic = {}
+for i in range(len(s)):
+    if s[i] in dic:
+        dic[s[i]] += 1
+    else:
+        dic[s[i]] = 1
+for i in dic:
+    print(i, dic[i])'''
 
+''' OJ 17
+m = int(input())
+print(pow(2,m*8-1)-1)'''
 
+''' OJ 18'''
+
+''' OJ 19
+T = int(input())
+for _ in range(T):
+    n = int(input())
+    a = [[0] * n] * n
+    for i in range(n):
+        a[i] = list(map(int, input().split()))
+    isDc = True
+    for i in range(n):
+        for j in range(n):
+            if a[i][j] != a[j][i]:
+                isDc = False
+    if isDc:
+        print("YES")
+    else:
+        print("NO")'''
+
+''' OJ 20
+T = int(input())
+for _ in range(T):
+    n, m = map(int, input().split())
+    a = [[0] * m] * n
+    for i in range(n):
+        a[i] = list(map(int, input().split()))
+    Avsc = [0] * n
+    for i in range(n):
+        Avsc[i] = sum(a[i]) / len(a[i])
+        for j in range(m):
+            if a[i][j] < 60:
+                Avsc[i] = -1.0'''
+    
+''' OJ 21
+T = int(input())
+for _ in range(T):
+    n, m, k = map(int, input().split())
+    a = [[0] * m] * n
+    for i in range(n):
+        a[i] = list(map(int, input().split()))
+    sumScore = [0] * n
+    for i in range(n):
+        sumScore[i] = sum(a[i])
+    sumScore.sort()
+    sumScore.reverse()
+    for i in range(n):
+        if sum(a[i]) == sumScore[k - 1]:
+            for j in range(m):
+                print(a[i][j], end = ' ')'''
+
+''' OJ 22
+n, m = map(int, input().split())
+a = [[0] * m] * n
+for i in range(n):
+    a[i] = list(map(int, input().split()))
+minv = a[0][0]
+maxv = a[0][0]
+mini = 0
+minj = 0
+maxi = 0
+maxj = 0
+for i in range(n):
+    for j in range(m):
+        if a[i][j] < minv:
+            minv = a[i][j]
+            mini = i
+            minj = j
+        if a[i][j] > maxv:
+            maxv = a[i][j]
+            maxi = i
+            maxj = j
+a[mini][minj], a[maxi][maxj] = a[maxi][maxj], a[mini][minj]
+for i in range(n):
+    for j in range(m):
+        print(a[i][j],end = ' ')
+    print()'''
+
+''' OJ 23'''
+T = int(input())
+for _ in range(T):
+    n = int(input())
+    val = 1
+    a = [[1] * n] * n
+    for i in range(n):
+        for j in range(n - 1, -1):
+            a[i][j] = val
+            val += 1
