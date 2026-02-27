@@ -1107,12 +1107,37 @@ for i in range(n):
     print()'''
 
 ''' OJ 23'''
+
+''' OJ 24
 T = int(input())
 for _ in range(T):
-    n = int(input())
-    val = 1
-    a = [[1] * n] * n
-    for i in range(n):
-        for j in range(n - 1, -1):
-            a[i][j] = val
-            val += 1
+    x, y = map(int, input().split())
+    a = []
+    grid = []
+    for i in range(x):
+        s = input().strip().split()
+        a.append(list(s))
+        grid.append([''] * y)
+    
+    directions = [(-1, -1), (-1, 0), (-1, 1),
+                  (0, -1),          (0, 1),
+                  (1, -1),  (1, 0), (1, 1)]
+    for i in range(x):
+        for j in range(y):
+            if a[i][j] == '*':
+                grid[i][j] = '*'
+            else:
+                res = 0
+                for u, v in directions:
+                    ni = i + u
+                    nj = j + v
+                    if 0 <= ni < x and 0 <= nj < y and a[ni][nj] == '*':
+                        res += 1
+                grid[i][j] = str(res)
+    
+    # 输出结果
+    for i in range(x):
+        for j in range(y):
+            print(grid[i][j], end=' ')
+        print()'''
+
